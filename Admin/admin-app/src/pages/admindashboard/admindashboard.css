@@ -1,0 +1,229 @@
+/* Admin Dashboard styles */
+.admin-container {
+    width: 100%;
+    background-color: #1a1a1a;
+    color: white;
+    /* padding: 20px; */
+  }
+
+  .admin-container .header {
+    background: linear-gradient(180deg, rgb(37, 3, 78), rgb(26, 26, 26)), url('https://www.shutterstock.com/image-vector/neon-flowing-wavy-lines-on-600nw-2438904471.jpg');
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    height: 250px; /* Adjusted for visual consistency */
+    padding-top: 2rem;
+}
+
+  .heading {
+    font-size: 5rem;
+    text-align: center;
+    height: 15rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .message {
+    margin-bottom: 20px;
+    color: #4CAF50;
+  }
+  
+  .upload-form {
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .upload-button {
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+  
+  .upload-button:hover {
+    background-color: #45a049;
+  }
+  
+  .uploaded-music-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+  
+    margin : 2rem 2rem;
+  }
+  
+  .music-table {
+    width: 100%;
+    max-width: 1300px;
+    border-collapse: collapse;
+    margin: 0 auto;
+  }
+
+  .music-table thead tr th{
+    color: #07bb07;
+  }
+  
+  .music-table th, .music-table td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .music-table th {
+    background-color: #333;
+  }
+  
+  .music-table tr:nth-child(even) {
+    background-color: #2c2c2c;
+  }
+  
+  .music-table tr:hover {
+    background-color: #444;
+  }
+  
+  .play-link {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+  
+  .play-link:hover {
+    text-decoration: underline;
+  }
+  
+  .delete-button {
+    color: #f44336;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    text-decoration: underline;
+  }
+  .popular-genres{
+    font-size: 22px;
+    padding: 20px;
+    text-align: center;
+    margin: 5px;
+  }
+/* Genre Links Container */
+.genre-links {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Individual Genre Link Styling */
+  .genre-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    background: #1e1e1e; /* Dark background */
+    border-radius: 8px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Hover Effect */
+  .genre-link:hover {
+    transform: scale(1.1); /* Zoom in on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Elevate */
+  }
+  
+  /* Add Gradient Background */
+  .genre-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c); /* Gradient effect */
+    opacity: 0.6;
+    z-index: -1;
+    transition: opacity 0.3s;
+  }
+  
+  .genre-link:hover::before {
+    opacity: 1; /* Brighten gradient on hover */
+  }
+  
+  /* Play Button Effect (optional) */
+  .genre-link::after {
+    content: "▶"; /* Play symbol */
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    font-size: 2rem;
+    color: #1db954; /* Spotify green color */
+    opacity: 0.8;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  
+  .genre-link:hover::after {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  /* Bollywood */
+.genre-bollywood {
+    background: linear-gradient(135deg, #ff7eb3, #ff173d); /* Pink gradient */
+  }
+
+  /* Romantic */
+.genre-romantic {
+    background: linear-gradient(135deg, #ff9a8b, #ff6a88); /* Peach gradient */
+  }
+  
+  /* Hip-Hop */
+  .genre-hiphop {
+    background: linear-gradient(135deg, #56ccf2, #2f80ed); /* Blue gradient */
+  }
+  
+  /* Pop */
+  .genre-pop {
+    background: linear-gradient(135deg, #a8ff78, #78ffd6); /* Green gradient */
+  }
+  
+  /* rock */
+  .genre-rock {
+    background: linear-gradient(135deg, #1405e2, #0293e1); /* Green gradient */
+  }
+
+  /* electronic */
+  .genre-electronic {
+    background: linear-gradient(135deg, #e205e2, #25034e); /* Green gradient */
+  }

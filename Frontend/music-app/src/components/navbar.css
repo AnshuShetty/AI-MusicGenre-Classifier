@@ -1,0 +1,105 @@
+/* Navbar Styles */
+
+/* Navbar container */
+.navbar {
+    background-color: black;
+    color: white;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Logo */
+  .navbar .logo img{
+    width: 200px;
+  }
+  
+  .navbar .logo a:hover {
+    color: #16c784; /* Lighter green on hover */
+  }
+  
+  /* Account section */
+  .navbar .account {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Button styles */
+  .navbar .btn {
+    padding: 8px 16px;
+    border-radius: 200px;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    outline: none;
+  }
+
+  .AccountName{
+    display: flex;
+  }
+
+  .navbar .admin-btn{
+    background-color: transparent; /* Green */
+    border: 1px solid #00bd29;
+    color: rgb(255, 255, 255);
+    outline: none;
+    margin: 0 10px;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    align-items: center;
+  }
+  .navbar .admin-btn:hover {
+    background-color: #017a4c; /* Lighter green */
+  }
+  
+  /* Login Button */
+  .navbar .login-btn {
+    background-color: transparent; /* Green */
+    border: 1px solid #00bd29;
+    color: rgb(255, 255, 255);
+    outline: none;
+    margin: 0 10px;
+  }
+  
+  .navbar .login-btn:hover {
+    background-color: #16c784; /* Lighter green */
+  }
+  
+  /* Logout Button */
+  .navbar .logout-btn {
+    background-color: #00bd29; /* Red */
+    color: white;
+    font-weight: 400;
+  }
+  
+  .navbar .logout-btn:hover {
+    background-color: #f43f5e; /* Lighter red */
+  }
+  
+  /* Username */
+  .navbar .username {
+    font-size: 1rem;
+    color: white;
+  }
+
+  .AccountName .fav{
+    padding: 10px;
+  }
+
+  .fav a{
+    text-decoration: none;
+    color: white;
+  }
+
+  .fav:hover{
+    border-bottom: 1px solid #00bd29;
+  }
+  

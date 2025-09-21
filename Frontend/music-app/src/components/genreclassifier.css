@@ -1,0 +1,52 @@
+/* Genre Classifier Section */
+ .genre-classifier {
+    margin-bottom: 5rem; /* Increased margin-bottom for more space */
+    background-color: #151515; /* Dark background for the upload section */
+    color: white; /* Text color white */
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 1100px;
+    margin: 4rem auto;
+}
+
+.genre-classifier h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.genre-classifier input[type="file"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.genre-classifier button {
+    background-color: #107e03; /* Dark Green color for the button */
+    color: white;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.genre-classifier button:hover {
+    background-color: #FF5722; /* Darker shade on hover */
+}
+
+.genre-classifier .error {
+    color: #FF0000;
+    margin-top: 15px;
+}
+
+.genre-classifier .result {
+    color: #4CAF50;
+    margin-top: 15px;
+}

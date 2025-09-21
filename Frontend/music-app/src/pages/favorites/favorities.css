@@ -1,0 +1,33 @@
+.favorites-container {
+  /* padding: 20px; */
+  background-color: rgb(27, 27, 27);
+  width: 100%;
+  height: 100vh;
+}
+
+.favorite-list {
+  list-style: none;
+  padding: 0;
+}
+
+.favorite-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.favorites-container .fav-header{
+    padding: 20px;
+    background: linear-gradient(to bottom, rgb(11, 100, 88) 5% , transparent);
+    height: 300px;
+}
+
+.fav-header h2{
+    font-size: 50px;
+    text-align: center;
+    display: flex;align-items: center;justify-content: center;color: white;
+}
+.song-container{
+  margin: 20px;
+}

@@ -1,0 +1,36 @@
+# Node.js
+**/node_modules/
+**/package-lock.json
+
+# React build
+**/build/
+**/dist/
+
+# Python virtual environments
+env/
+venv/
+ENV/
+.venv/
+
+# Python cache
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+# Env files
+.env
+*.env
+**/.env
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# VS Code settings (optional)
+.vscode/
+
+# Logs
+*.log
+*.h5
+*.zip

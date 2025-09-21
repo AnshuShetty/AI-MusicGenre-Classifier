@@ -1,0 +1,119 @@
+
+/* Login Page Container */
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Background Image with Overlay */
+  .login-page-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://img.freepik.com/free-vector/music-sound-waves-background-with-colourful-smoke-effect_23-2148427617.jpg') no-repeat center center/cover; /* Add background image */
+    z-index: -2;
+  }
+  
+  .login-page-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.851); /* Black overlay */
+    z-index: -1;
+  }
+  
+  /* Login Box */
+  .login-box {
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Form Group */
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Input Fields */
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #10931b; /* Light gray border */
+    border-radius: 5px;
+    background: transparent; /* Darker gray background */
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  input:focus {
+    border-color: #1ce306; /* Green on focus */
+    outline: none;
+  }
+  
+  /* Login Button */
+  .login-button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #0cbe2c; /* Green button */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background: #06821d; /* Darker green on hover */
+  }
+  
+  .login-button:disabled {
+    background: #6b7280; /* Gray when loading */
+    cursor: not-allowed;
+  }
+  
+  /* Error Message */
+  .error {
+    color: #f87171; /* Red for error */
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .login-box h2{
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .app-logo{
+    width: 400px;
+    height: auto;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .login-box {
+      padding: 1.5rem;
+    }
+  
+    input,
+    .login-button {
+      font-size: 0.9rem;
+    }
+  }
+  

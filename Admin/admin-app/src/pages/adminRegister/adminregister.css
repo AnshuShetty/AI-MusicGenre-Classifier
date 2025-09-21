@@ -1,0 +1,145 @@
+/* Admin Register Page Container */
+.register-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Background Image with Overlay */
+.register-page-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://img.freepik.com/free-vector/music-sound-waves-background-with-colourful-smoke-effect_23-2148427617.jpg') no-repeat center center/cover; /* Background image */
+    z-index: -2;
+}
+
+.register-page-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.898); /* Black overlay */
+    z-index: -1;
+}
+
+/* Admin Register Box */
+.register-box {
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.register-box h2{
+    color: white;
+}
+
+/* Admin Register Title */
+.register-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Group */
+.register-form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Input Fields */
+.register-input-field {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #10931b; /* Light gray border */
+    border-radius: 5px;
+    background: transparent; /* Darker gray background */
+    color: #fff;
+    font-size: 1rem;
+}
+
+.register-input-field:focus {
+    border-color: #1ce306; /* Green on focus */
+    outline: none;
+}
+
+/* Admin Register Submit Button */
+.register-submit-button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #0cbe2c; /* Green button */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.register-submit-button:hover {
+    background: #06821d; /* Darker green on hover */
+}
+
+.register-submit-button:disabled {
+    background: #6b7280; /* Gray when loading */
+    cursor: not-allowed;
+}
+
+
+
+/* Error Message */
+.register-error-message {
+    color: #f87171; /* Red for error */
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+/* Admin Logo */
+.register-logo {
+    width: 400px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+/* Register Login Link */
+.register-login-link {
+    color: white;
+    font-size: 0.875rem;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.register-login-link-text {
+    color: #10931b;
+    text-decoration: underline;
+}
+
+.register-login-link-text:hover {
+    color: #38a169;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .admin-register-box {
+        padding: 1.5rem;
+    }
+
+    .admin-register-input-field,
+    .admin-register-submit-button {
+        font-size: 0.9rem;
+    }
+}

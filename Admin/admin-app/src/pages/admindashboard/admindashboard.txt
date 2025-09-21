@@ -1,0 +1,235 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import axiosInstance from "../../utils/axiosInstance";
+import { useNavigate, Link } from "react-router-dom";
+import Navbar from "../../components/Navbar";
+import '../admindashboard/admindashboard.css';
+
+const AdminDashboard = () => {
+  const [musicList, setMusicList] = useState([]);
+  const [formData, setFormData] = useState({
+    title: "",
+    artist: "",
+    genre: "",
+    album: "", // Add album to the form data
+  });
+  const [file, setFile] = useState(null);
+  const [message, setMessage] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [username, setUsername] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Remove token and username from localStorage
+    localStorage.removeItem("adminToken");
+    localStorage.removeItem("username");
+    localStorage.removeItem("role");
+
+    // Update the state to reflect the user is logged out
+    setIsAuthenticated(false);
+    setUsername("");
+
+    // Optionally redirect the user to the home page
+    navigate("/admin/login");
+  };
+
+  useEffect(() => {
+    // Check if the user has a token and the correct role in localStorage
+    const token = localStorage.getItem("adminToken");
+    const role = localStorage.getItem("role");
+    const storedUsername = localStorage.getItem("username");
+    setUsername(storedUsername);
+
+    if (!token || role !== "admin") {
+      // If no token or role is not admin, redirect to login page
+      navigate("/admin/login");
+    }
+  }, [navigate]);
+
+  // Fetch all music on component mount
+  useEffect(() => {
+    fetchMusicList();
+  }, []);
+
+  const fetchMusicList = async () => {
+    try {
+      const response = await axiosInstance.get("http://localhost:5000/api/music/list");
+      setMusicList(response.data);
+    } catch (error) {
+      console.error("Error fetching music list:", error);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = new FormData();
+    data.append("file", file);
+    data.append("title", formData.title);
+    data.append("artist", formData.artist);
+    data.append("album", formData.album); // Add album here
+    data.append("genre", formData.genre);
+
+    try {
+      const response = await axiosInstance.post("http://localhost:5000/api/music/upload", data);
+      setMessage(response.data.message);
+      fetchMusicList(); // Refresh music list
+    } catch (error) {
+      console.error("Error uploading music:", error.response?.data || error.message);
+      setMessage("Error uploading music");
+    }
+  };
+
+  // Deleting music
+  const handleDelete = async (id) => {
+    try {
+      const response = await axiosInstance.delete(`http://localhost:5000/api/music/${id}`);
+      console.log(response.data.message); // Optional: log the success message
+      setMusicList(musicList.filter((music) => music._id !== id)); // Remove the deleted music from list
+      alert("Music deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting music:", error);
+      alert("An error occurred while deleting music.");
+    }
+  };
+
+  return (
+    <>
+      <Navbar
+        isAuthenticated={isAuthenticated}
+        adminName={username}
+        onLogout={handleLogout}
+      />
+    <div className="admin-container">
+      <h1 className="heading">Admin Dashboard</h1>
+      {message && <p className="message">{message}</p>}
+
+      <form onSubmit={handleSubmit} className="upload-form">
+        <div className="form-group">
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={formData.title}
+            onChange={handleInputChange}
+            className="input-field"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="artist">Artist</label>
+          <input
+            type="text"
+            id="artist"
+            name="artist"
+            value={formData.artist}
+            onChange={handleInputChange}
+            className="input-field"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="album">Album</label>
+          <input
+            type="text"
+            id="album"
+            name="album"
+            value={formData.album}
+            onChange={handleInputChange}
+            className="input-field"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="genre">Genre</label>
+          <input
+            type="text"
+            id="genre"
+            name="genre"
+            value={formData.genre}
+            onChange={handleInputChange}
+            className="input-field"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="file">Music File</label>
+          <input
+            type="file"
+            id="file"
+            onChange={handleFileChange}
+            className="input-field"
+            required
+          />
+        </div>
+        <button type="submit" className="upload-button">
+          Upload Music
+        </button>
+      </form>
+
+      <h2 className="uploaded-music-heading">Uploaded Music</h2>
+      <table className="music-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Album</th>
+            <th>Uploaded Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {musicList.map((music) => (
+            <tr key={music._id}>
+              <td>{music.title}</td>
+              <td>{music.artist}</td>
+              <td>{music.genre}</td>
+              <td>
+                {music.album}
+              </td>
+              <td>
+                {/* Format and display the uploadedAt date */}
+                {music.uploadedAt
+                  ? new Date(music.uploadedAt).toLocaleString()  // Converts to local date format
+                  : "N/A"
+                }
+              </td>
+              <td>
+                <button
+                  onClick={() => handleDelete(music._id)}
+                  className="delete-button"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+        <h2 className="popular-genres">Popular Genres</h2>
+      <div className="genre-links">
+        <Link to="/dashboard/Bollywood" className="genre-link genre-bollywood">Bollywood</Link>
+        <Link to="/dashboard/Romantic" className="genre-link genre-romantic">Romantic</Link>
+        <Link to="/dashboard/hiphop" className="genre-link genre-hiphop">Hip-Hop</Link>
+        <Link to="/dashboard/pop" className="genre-link genre-pop">Pop</Link>
+        <Link to="/dashboard/rock" className="genre-link genre-rock">Rock</Link>
+      </div>
+    </div>
+    </>
+  );
+};
+
+
+export default AdminDashboard;

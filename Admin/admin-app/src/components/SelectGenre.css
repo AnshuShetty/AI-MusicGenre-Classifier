@@ -1,0 +1,71 @@
+/* SelectGenre.css */
+.select-genre-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+    background: linear-gradient(180deg, rgb(15, 24, 37), rgb(26, 26, 26));
+  }
+
+  .select-genre-container .header {
+    /* background: linear-gradient(180deg, rgb(37, 3, 78), rgb(26, 26, 26)), url('https://www.shutterstock.com/image-vector/neon-flowing-wavy-lines-on-600nw-2438904471.jpg'); */
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    height: 250px; /* Adjusted for visual consistency */
+    padding-top: 2rem;
+    color: white;
+}
+  
+  .genre-selection {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    /* max-width: 800px; */
+    margin-top: 50px;
+  }
+
+  .ind-clas-img{
+    width: 250px;
+    border-radius: 10px;
+  }
+  
+  .genre-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background-color: #1a1a1a;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .genre-box:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .indian-genres {
+    background-color: #fafafa;
+    color: #1a1a1a;
+    text-decoration: none;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .western-genres {
+    background-color: #3498db;
+  }
+  
+  h3 {
+    text-align: center;
+    margin: 0;
+  }
+  
